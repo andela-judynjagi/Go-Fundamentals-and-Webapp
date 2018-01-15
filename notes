@@ -1,0 +1,26 @@
+Built-in Handlers
+
+1. NotFoundHandler - returns a status 404 not found response back to the requester.
+syntax:
+  func NotFoundHandler() Handler
+
+2. RedirectHandler - It takes the request that came in and redirect it to another URL.
+syntax:
+  func RedirectHandler(url string, code int) handler
+  it takes 2 parameters. The url to redirect to and status code of that redirect(could be permanent or tempo)
+
+3. StripPrefix - Looks like a middleware
+syntax:
+  func StripPrefix(prefix string, h handler) handler
+  Takes a prefix that's going to remove from the incoming request url. Second is the handler that receives a request after stripPrefix is done. StripPrefix will decorate another handler so you can specify the url with prefix on it and use it with a handler that wasn't expecting the prefix to be there
+
+4. TimeoutHandler
+syntax:
+  func TimeOutHandler(h Handler, dt time.Duration, msg string) handler
+  the first argument is the handler it's decorating. Second is the amount of time taken to process and timeout if request takes too long. If it takes too long it returns a message saying it took to long to respond.
+
+5. FileServer
+ syntax:
+  func FileServer(root FileSystem) Handler
+
+  filesytem is an interface that defines a method Open that takes the name of a file and returns a File object and an error

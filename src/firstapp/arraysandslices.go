@@ -29,10 +29,13 @@ func main() {
   fmt.Println(mySlice)
 
   //appending values to a slice. When the array is full append creates ann array twice the previous size
-
   for i :=1; i<17; i++ {
     mycourses = append(mycourses, i)
     fmt.Println(cap(mycourses))
-
   }
+
+  //append slices to sliceOfSlice
+  newSlice := []int {56, 78}
+  mycourses = append(mycourses, newSlice...) // use ellipses to append a collection to the end of the slice
+  fmt.Println(mycourses)
 }

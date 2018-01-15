@@ -24,3 +24,16 @@ syntax:
   func FileServer(root FileSystem) Handler
 
   filesytem is an interface that defines a method Open that takes the name of a file and returns a File object and an error
+
+  Templates
+  When working with templates, there are 3 functions you must know.
+  New - For creating a new template
+  Parse - Take in a string and create actual template
+  Execute - To compile template with whatever data we provide and generate the responses and generate them out
+
+  Loading templates
+  Methods are:
+  ParseFiles  - takes file
+  ParseGlob - takes a pattern instead of a specific type of file
+  Lookup - looks up a template by name
+  Must - Takes a template and error. Handles errors
